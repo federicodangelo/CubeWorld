@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>9.0.21022</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{34EEFCB7-E9F2-A5AC-F636-9A1891B6A4B5}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace>Irrelevant</RootNamespace>
+	<AssemblyName>Irrelvant</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_3_0_0;UNITY_3_0;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_WIN;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+	<Reference Include="Boo.Lang">
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Mono/lib/mono/unity/Boo.Lang.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityScript">
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Mono/lib/mono/unity/UnityScript.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <None Include="Assets\Materials\CW-Translucid-VertexLit.shader" />
+     <None Include="Assets\Materials\CW-Transparent-VertexLit.shader" />
+     <None Include="Assets\Materials\CW-VertexLit-Damaged.shader" />
+     <None Include="Assets\Materials\CW-VertexLit-Item.shader" />
+     <None Include="Assets\Materials\CW-VertexLit-Surroundings.shader" />
+     <None Include="Assets\Materials\CW-VertexLit.shader" />
+     <Compile Include="Assets\Resources\Effects\FxVibration.cs" />
+     <None Include="Assets\Resources\config_avatars.xml" />
+     <None Include="Assets\Resources\config_generators.xml" />
+     <None Include="Assets\Resources\config_items.xml" />
+     <None Include="Assets\Resources\config_misc.xml" />
+     <None Include="Assets\Resources\config_tiles.xml" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\VisibleSectorsStrategies\VisibleSectorsStrategy.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\VisibleSectorsStrategies\VisibleSectorStrategyAll.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\VisibleSectorsStrategies\VisibleSectorStrategyRadius.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\AvatarUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\CWFxManagerUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\CWObjectsManagerUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\GraphicsUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\ItemTileUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\ItemUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\MeshUtils.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\SectorManagerUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\SectorUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\SurroundingsUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\TileUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\VisualDefinitionRenderUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\CubeWorld\WorldManagerUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\GUI\States\GUIState.cs" />
+     <Compile Include="Assets\SourceCode\Unity\GUI\States\GUIStatePlayerInventory.cs" />
+     <Compile Include="Assets\SourceCode\Unity\GUI\States\GUIStatePlayerNormal.cs" />
+     <Compile Include="Assets\SourceCode\Unity\GUI\MainMenu.cs" />
+     <Compile Include="Assets\SourceCode\Unity\GUI\PlayerGUI.cs" />
+     <Compile Include="Assets\SourceCode\Unity\Player\NonPlayerAvatarUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\Player\PlayerControllerUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\Player\PlayerUnity.cs" />
+     <Compile Include="Assets\SourceCode\Unity\System\CubeWorldPlayerPreferences.cs" />
+     <Compile Include="Assets\SourceCode\Unity\System\MenuSystem.cs" />
+     <Compile Include="Assets\SourceCode\Unity\GameManagerUnity.cs" />
+ <Reference Include="CubeWorldLibrary">
+ <HintPath>Assets\Libs\CubeWorldLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Ionic.Zip.Reduced">
+ <HintPath>Assets\Libs\Ionic.Zip.Reduced.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
+	

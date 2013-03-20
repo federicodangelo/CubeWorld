@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C5212213-ADB7-4658-8868-42004E96A6A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CubeWorldLibrary</RootNamespace>
+    <AssemblyName>CubeWorldLibrary</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip.Reduced, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CubeWorld\Avatars\Avatar.cs" />
+    <Compile Include="CubeWorld\Avatars\AvatarDefinition.cs" />
+    <Compile Include="CubeWorld\Avatars\AvatarInput.cs" />
+    <Compile Include="CubeWorld\Avatars\AvatarManager.cs" />
+    <Compile Include="CubeWorld\Avatars\AvatarPartDefinition.cs" />
+    <Compile Include="CubeWorld\Avatars\Components\AvatarComponentIA.cs" />
+    <Compile Include="CubeWorld\Avatars\Components\AvatarComponentPhysics.cs" />
+    <Compile Include="CubeWorld\Avatars\Player.cs" />
+    <Compile Include="CubeWorld\Configuration\Config.cs" />
+    <Compile Include="CubeWorld\Configuration\ConfigDayInfo.cs" />
+    <Compile Include="CubeWorld\Configuration\ConfigExtraMaterials.cs" />
+    <Compile Include="CubeWorld\Configuration\ConfigSurroundings.cs" />
+    <Compile Include="CubeWorld\Configuration\ConfigWorldGenerator.cs" />
+    <Compile Include="CubeWorld\Configuration\ConfigWorldSize.cs" />
+    <Compile Include="CubeWorld\Console\CWConsole.cs" />
+    <Compile Include="CubeWorld\Console\ICWConsoleListener.cs" />
+    <Compile Include="CubeWorld\Gameplay\BaseGameplay.cs" />
+    <Compile Include="CubeWorld\Gameplay\BasicEnemiesGameplay.cs" />
+    <Compile Include="CubeWorld\Gameplay\BasicGameplay.cs" />
+    <Compile Include="CubeWorld\Gameplay\GameplayDefinition.cs" />
+    <Compile Include="CubeWorld\Gameplay\GameplayFactory.cs" />
+    <Compile Include="CubeWorld\Gameplay\MultiplayerClientGameplay.cs" />
+    <Compile Include="CubeWorld\Gameplay\MultiplayerServerGameplay.cs" />
+    <Compile Include="CubeWorld\Gameplay\Multiplayer\IMultiplayerClientListener.cs" />
+    <Compile Include="CubeWorld\Gameplay\Multiplayer\IMultiplayerServerListener.cs" />
+    <Compile Include="CubeWorld\Gameplay\Multiplayer\MultiplayerAction.cs" />
+    <Compile Include="CubeWorld\Gameplay\Multiplayer\MultiplayerClient.cs" />
+    <Compile Include="CubeWorld\Gameplay\Multiplayer\MultiplayerProtocol.cs" />
+    <Compile Include="CubeWorld\Gameplay\Multiplayer\MultiplayerServer.cs" />
+    <Compile Include="CubeWorld\Gameplay\Multiplayer\MultiplayerStats.cs" />
+    <Compile Include="CubeWorld\Gameplay\RoguelikeGameplay.cs" />
+    <Compile Include="CubeWorld\Items\Components\ItemComponentAutoDestroy.cs" />
+    <Compile Include="CubeWorld\Items\Components\ItemComponentGoToPlayer.cs" />
+    <Compile Include="CubeWorld\Items\Components\ItemComponentGravity.cs" />
+    <Compile Include="CubeWorld\Items\Inventory.cs" />
+    <Compile Include="CubeWorld\Items\InventoryEntry.cs" />
+    <Compile Include="CubeWorld\Items\Item.cs" />
+    <Compile Include="CubeWorld\Items\ItemDefinition.cs" />
+    <Compile Include="CubeWorld\Items\ItemManager.cs" />
+    <Compile Include="CubeWorld\Items\ItemTile.cs" />
+    <Compile Include="CubeWorld\Items\ItemTileDefinition.cs" />
+    <Compile Include="CubeWorld\Sectors\ISectorGraphics.cs" />
+    <Compile Include="CubeWorld\Sectors\Sector.cs" />
+    <Compile Include="CubeWorld\Sectors\SectorManager.cs" />
+    <Compile Include="CubeWorld\Serialization\ISerializable.cs" />
+    <Compile Include="CubeWorld\Serialization\RegisterSerializationTypes.cs" />
+    <Compile Include="CubeWorld\Serialization\Serializer.cs" />
+    <Compile Include="CubeWorld\Tiles\Components\TileComponentGravity.cs" />
+    <Compile Include="CubeWorld\Tiles\DynamicTile.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileActionRule.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRule.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleApplyEffect.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleCondition.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleConditionAnd.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleConditionIsBurnable.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleConditionIsOnFire.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleConditionIsType.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleConditionNearTypeAmout.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleConditionNot.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleConditionOr.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleCreateItem.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleDamage.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleDestroy.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleDropSameTileItem.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleExplode.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleInvalidate.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleLiquid.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleMultiple.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleMultipleOnlyOne.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRulePlayEffect.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRulePlaySound.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleSetDynamic.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleSetOnFire.cs" />
+    <Compile Include="CubeWorld\Tiles\Rules\TileRuleSetTileType.cs" />
+    <Compile Include="CubeWorld\Tiles\Tile.cs" />
+    <Compile Include="CubeWorld\Tiles\TileActionRules.cs" />
+    <Compile Include="CubeWorld\Tiles\TileDefinition.cs" />
+    <Compile Include="CubeWorld\Tiles\TileManager.cs" />
+    <Compile Include="CubeWorld\Tiles\TilePosition.cs" />
+    <Compile Include="CubeWorld\Tiles\TileUpdateRules.cs" />
+    <Compile Include="CubeWorld\Utils\Color.cs" />
+    <Compile Include="CubeWorld\Utils\Graphics.cs" />
+    <Compile Include="CubeWorld\Utils\Manhattan.cs" />
+    <Compile Include="CubeWorld\Utils\Serialization.cs" />
+    <Compile Include="CubeWorld\Utils\Vector3.cs" />
+    <Compile Include="CubeWorld\World\CubeWorld.cs" />
+    <Compile Include="CubeWorld\World\CubeWorldStats.cs" />
+    <Compile Include="CubeWorld\World\Generator\CaveCellWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\CaveWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\ChainedWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\CubeWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\DepositWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\GeneratorProcess.cs" />
+    <Compile Include="CubeWorld\World\Generator\HoleWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\MidpointDisplacementWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\ParticleDepositionWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\PerlinNoise2WorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\PerlinNoiseWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\PlainRandomWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\PlainWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\RoguelikeWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\SmoothWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\TopTileTransformationWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\TreeWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\WaterWorldGenerator.cs" />
+    <Compile Include="CubeWorld\World\Generator\WorldSizeRelativeValue.cs" />
+    <Compile Include="CubeWorld\World\ICWFxListener.cs" />
+    <Compile Include="CubeWorld\World\ICWListener.cs" />
+    <Compile Include="CubeWorld\World\Lights\DayCycleManager.cs" />
+    <Compile Include="CubeWorld\World\Lights\DayTimeLuminanceInfo.cs" />
+    <Compile Include="CubeWorld\World\Lights\LightModelAmbient.cs" />
+    <Compile Include="CubeWorld\World\Lights\LightModelLightSource.cs" />
+    <Compile Include="CubeWorld\World\Objects\CWComponent.cs" />
+    <Compile Include="CubeWorld\World\Objects\CWDefinition.cs" />
+    <Compile Include="CubeWorld\World\Objects\CWObject.cs" />
+    <Compile Include="CubeWorld\World\Objects\CWVisualDefinition.cs" />
+    <Compile Include="CubeWorld\Configuration\AvailableConfigurations.cs" />
+    <Compile Include="CubeWorld\Configuration\ConfigParserXML.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(ProjectDir)..\CubeWorld\Assets\Libs</PostBuildEvent>
+  </PropertyGroup>
+</Project>

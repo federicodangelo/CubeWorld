@@ -1,0 +1,428 @@
+<Config>
+
+  <Generators>
+    
+    <Generator name="Forest and Mountains and Caves - Perlin" surroundingLevel ="sizeY * 0.53" surroundingMaterial="223" surroundingOffsetY="-0.1">
+
+      <Chained>
+        <!-- Lava at the bottom -->
+        <Plain fromY="0" toY="sizeY * 0.2" tileType="rock" />
+        <ParticleDeposition minParticles="5" maxParticles="10" minDrops="sizeXZ * 0.005" maxDrops="sizeXZ * 0.02" tileType="lava" />
+
+        <!-- Some Dirt -->
+        <Plain fromY="sizeY * 0.2" toY="sizeY * 0.45" tileType="dirt" />
+
+        <!-- Mineral Deposits -->
+        <Deposit fromY="0" toY="sizeY" overTile="dirt" tileType="rock" minRadius ="1" maxRadius="7" iterations="sizeXZ * 0.012" allowEmptyAbove="true"/>
+
+        <Deposit fromY="0" toY="sizeY * 0.7" overTile="dirt" tileType="rock" minRadius ="1" maxRadius="7" iterations="sizeXZ * 0.03"/>
+
+        <Deposit fromY="0" toY="sizeY * 0.7" overTile="dirt" tileType="rock_carbon" minRadius ="1" maxRadius="5" iterations="sizeXZ * 0.01"/>
+        <Deposit fromY="0" toY="sizeY * 0.5" overTile="dirt" tileType="rock_copper" minRadius ="1" maxRadius="3" iterations="sizeXZ * 0.008"/>
+        <Deposit fromY="0" toY="sizeY * 0.4" overTile="dirt" tileType="rock_gold" minRadius ="1" maxRadius="2" iterations="sizeXZ * 0.004"/>
+        <Deposit fromY="0" toY="sizeY * 0.3" overTile="dirt" tileType="rock_red" minRadius ="1" maxRadius="2" iterations="sizeXZ * 0.002"/>
+        <Deposit fromY="0" toY="sizeY * 0.2" overTile="dirt" tileType="rock_diamond" minRadius ="1" maxRadius="2" iterations="sizeXZ * 0.001"/>
+
+
+        <!-- Some caves -->
+        <Cave fromY="sizeY * 0.2" toY="sizeY * 0.35" iterations="sizeXZ * 0.0005" minRadius="4" maxRadius="10"/>
+        <CaveCell iterations="sizeXZ * 0.0005" minRadius="1" maxRadius="1" minDepth="sizeY * 2" maxDepth="sizeY * 4" />
+        
+        <!-- Some mountaints -->
+        <PerlinNoise fromY="sizeY * 0.45" toY="sizeY * 0.60" octaves="1" freq="0.0625" tileType="dirt"/>
+        <PerlinNoise fromY="sizeY * 0.45" toY="sizeY * 0.60" octaves="1" freq="0.0625" tileType="dirt"/>
+        <PerlinNoise fromY="sizeY * 0.45" toY="sizeY * 0.60" octaves="1" freq="0.0625" tileType="dirt"/>
+        <PerlinNoise fromY="sizeY * 0.45" toY="sizeY * 0.60" octaves="1" freq="0.0625" tileType="dirt"/>
+        <PerlinNoise fromY="sizeY * 0.45" toY="sizeY * 0.60" octaves="1" freq="0.0625" tileType="dirt"/>
+        <PerlinNoise fromY="sizeY * 0.45" toY="sizeY * 0.60" octaves="1" freq="0.0625" tileType="dirt"/>
+        <PerlinNoise fromY="sizeY * 0.45" toY="sizeY * 0.60" octaves="1" freq="0.0625" tileType="dirt"/>
+        <PerlinNoise fromY="sizeY * 0.45" toY="sizeY * 0.60" octaves="1" freq="0.0625" tileType="dirt"/>
+        
+		    <PerlinNoise fromY="sizeY * 0.45" toY="sizeY * 0.65" octaves="1" freq="0.0625" tileType="dirt"/>                
+		    <PerlinNoise fromY="sizeY * 0.45" toY="sizeY * 0.65" octaves="1" freq="0.0625" tileType="dirt"/>                
+		    <PerlinNoise fromY="sizeY * 0.45" toY="sizeY * 0.65" octaves="1" freq="0.0625" tileType="dirt"/>                
+		    <PerlinNoise fromY="sizeY * 0.45" toY="sizeY * 0.65" octaves="1" freq="0.0625" tileType="dirt"/>
+
+		    <PerlinNoise fromY="sizeY * 0.45" toY="sizeY * 0.90" octaves="4" freq="0.0078125" tileType="dirt"/>
+        
+        <ParticleDeposition minParticles="sizeY" maxParticles="sizeY * 60" minDrops="sizeXZ * 0.000025" maxDrops="sizeXZ * 0.00005" tileType="dirt" />
+        
+        <!-- And the water -->
+        <Water fromY="sizeY * 0.45" toY="sizeY * 0.53" waterTileType="water" />
+        <ParticleDeposition minParticles="1" maxParticles="2" minDrops="sizeXZ * 0.0001" maxDrops="sizeXZ * 0.0002" tileType="water" />
+
+        <!-- Convert visible dirt to grass -->
+        <TopTileTransformation fromTile="dirt" toTile="dirt_grass" probability="1"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_floor" probability="0.004"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_grass" probability="0.008"/>
+
+        <!-- Finally the trees-->
+        <Tree min="sizeXZ * 0.01" max="sizeXZ * 0.02" overTile="dirt_grass" minTrunkHeight="2" maxTrunkHeight="2" minLeavesHeight="3" maxLeavesHeight="4" minLeavesRadius="1" maxLeavesRadius="2" trunkTile="wood" leavesTile="leaves" />
+
+      </Chained>
+      
+    </Generator>
+
+
+    <Generator name="Beach" surroundingLevel ="sizeY * 0.5" surroundingMaterial="223" surroundingOffsetY="-0.1">
+
+      <Chained>
+        <Plain fromY="0" toY="sizeY * 0.25" tileType="lava" />
+        <Plain fromY="sizeY * 0.25" toY="sizeY * 0.5" tileType="sand" />
+
+
+        <!-- Some mountaints -->
+        <ParticleDeposition minParticles="sizeY * 1" maxParticles="sizeY * 10" minDrops="sizeXZ * 0.0005" maxDrops="sizeXZ * 0.001" tileType="dirt" />
+
+        <!-- Smooth the mountains -->
+        <Smooth tileType="dirt" iterations="sizeXZ * 0.025" minRadius="3" maxRadius="5" />
+
+
+        <TopTileTransformation fromTile="dirt" toTile="dirt_grass" probability="1"/>
+      </Chained>
+
+    </Generator>
+
+    <Generator name="Midpoint Displacement" surroundingLevel ="sizeY * 0.53" surroundingMaterial="223" surroundingOffsetY="-0.1">
+
+      <Chained>
+        <!-- Basic Terrain -->
+        <Plain fromY="0" toY="sizeY * 0.2" tileType="rock" />
+        <MidpointDisplacement fromY="sizeY * 0.2" toY="sizeY * 0.8" roughness="2.5" tileType="dirt"/>
+        <PerlinNoise2 fromY="0.2" toY="sizeY * 0.9" octaves="8" freq="0.0125" tileType="dirt"/>
+
+        <!-- Mineral Deposits -->
+        <Deposit fromY="0" toY="sizeY" overTile="dirt" tileType="rock" minRadius ="1" maxRadius="7" iterations="sizeXZ * 0.012" allowEmptyAbove="true"/>
+
+        <Deposit fromY="0" toY="sizeY * 0.7" overTile="dirt" tileType="rock" minRadius ="1" maxRadius="7" iterations="sizeXZ * 0.03"/>
+
+        <Deposit fromY="0" toY="sizeY * 0.7" overTile="dirt" tileType="rock_carbon" minRadius ="1" maxRadius="5" iterations="sizeXZ * 0.01"/>
+        <Deposit fromY="0" toY="sizeY * 0.5" overTile="dirt" tileType="rock_copper" minRadius ="1" maxRadius="3" iterations="sizeXZ * 0.008"/>
+        <Deposit fromY="0" toY="sizeY * 0.4" overTile="dirt" tileType="rock_gold" minRadius ="1" maxRadius="2" iterations="sizeXZ * 0.004"/>
+        <Deposit fromY="0" toY="sizeY * 0.3" overTile="dirt" tileType="rock_red" minRadius ="1" maxRadius="2" iterations="sizeXZ * 0.002"/>
+        <Deposit fromY="0" toY="sizeY * 0.2" overTile="dirt" tileType="rock_diamond" minRadius ="1" maxRadius="2" iterations="sizeXZ * 0.001"/>
+
+        <!-- Water -->
+        <Water fromY="0" toY="sizeY * 0.53" waterTileType="water" />
+
+        <!-- Convert visible dirt to grass -->
+        <TopTileTransformation fromTile="dirt" toTile="dirt_grass" probability="1"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_floor" probability="0.004"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_grass" probability="0.008"/>
+
+        <!-- Convert to sand some grass at water level -->
+        <Deposit fromY="sizeY * 0.50" toY="sizeY * 0.53" overTile="dirt_grass" tileType="sand" minRadius ="1" maxRadius="6" iterations="sizeXZ * 0.05" allowEmptyAbove="true"/>
+
+        <!-- Finally the trees-->
+        <Tree min="sizeXZ * 0.01" max="sizeXZ * 0.02" overTile="dirt_grass" minTrunkHeight="2" maxTrunkHeight="2" minLeavesHeight="3" maxLeavesHeight="4" minLeavesRadius="1" maxLeavesRadius="2" trunkTile="wood" leavesTile="leaves" />
+
+      </Chained>
+
+    </Generator>
+
+    <Generator name="Basic Perlin" surroundingLevel ="sizeY * 0.53" surroundingMaterial="223" surroundingOffsetY="-0.1">
+
+      <Chained>
+        <!-- Basic Terrain -->
+        <PerlinNoise2 fromY="0" toY="sizeY * 0.9" octaves="1" freq="0.0078125" tileType="dirt"/>
+        <PerlinNoise2 fromY="0" toY="sizeY * 0.7" octaves="1" freq="0.025" tileType="dirt"/>
+
+        <PerlinNoise2 fromY="0" toY="sizeY * 0.5" octaves="1" freq="0.0125" tileType="dirt"/>
+
+        <!-- 
+        <PerlinNoise2 fromY="0" toY="sizeY * 1.0" octaves="1" freq="0.0008" tileType="dirt"/>
+        <PerlinNoise2 fromY="0" toY="sizeY * 1.0" octaves="2" freq="0.0078125" tileType="dirt"/>
+        <PerlinNoise2 fromY="0" toY="sizeY * 0.7" octaves="3" freq="0.0625" tileType="dirt"/>
+        <PerlinNoise2 fromY="0" toY="sizeY * 0.6" octaves="7" freq="0.08" tileType="dirt"/> 
+		-->
+
+        <!-- Mineral Deposits -->
+        <Deposit fromY="0" toY="sizeY" overTile="dirt" tileType="rock" minRadius ="1" maxRadius="7" iterations="sizeXZ * 0.012" allowEmptyAbove="true"/>
+
+        <Deposit fromY="0" toY="sizeY * 0.7" overTile="dirt" tileType="rock" minRadius ="1" maxRadius="7" iterations="sizeXZ * 0.03"/>
+
+        <Deposit fromY="0" toY="sizeY * 0.7" overTile="dirt" tileType="rock_carbon" minRadius ="1" maxRadius="5" iterations="sizeXZ * 0.01"/>
+        <Deposit fromY="0" toY="sizeY * 0.5" overTile="dirt" tileType="rock_copper" minRadius ="1" maxRadius="3" iterations="sizeXZ * 0.008"/>
+        <Deposit fromY="0" toY="sizeY * 0.4" overTile="dirt" tileType="rock_gold" minRadius ="1" maxRadius="2" iterations="sizeXZ * 0.004"/>
+        <Deposit fromY="0" toY="sizeY * 0.3" overTile="dirt" tileType="rock_red" minRadius ="1" maxRadius="2" iterations="sizeXZ * 0.002"/>
+        <Deposit fromY="0" toY="sizeY * 0.2" overTile="dirt" tileType="rock_diamond" minRadius ="1" maxRadius="2" iterations="sizeXZ * 0.001"/>
+
+        <!-- Water -->
+        <Water fromY="0" toY="sizeY * 0.53" waterTileType="water" />
+
+        <!-- Convert visible dirt to grass -->
+        <TopTileTransformation fromTile="dirt" toTile="dirt_grass" probability="1"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_floor" probability="0.004"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_grass" probability="0.008"/>
+
+        <!-- Convert to sand some grass at water level -->
+        <Deposit fromY="sizeY * 0.50" toY="sizeY * 0.53" overTile="dirt_grass" tileType="sand" minRadius ="1" maxRadius="6" iterations="sizeXZ * 0.05" allowEmptyAbove="true"/>
+
+        <!-- Finally the trees-->
+        <Tree min="sizeXZ * 0.01" max="sizeXZ * 0.02" overTile="dirt_grass" minTrunkHeight="2" maxTrunkHeight="2" minLeavesHeight="3" maxLeavesHeight="4" minLeavesRadius="1" maxLeavesRadius="2" trunkTile="wood" leavesTile="leaves" />
+
+      </Chained>
+
+    </Generator>
+
+    <Generator name="Plain Forest" surroundingLevel ="sizeY * 0.5" surroundingMaterial="223" surroundingOffsetY="-0.1" >
+
+      <Chained>
+        <!-- Lava Floor -->
+        <Plain fromY="0" toY="sizeY * 0.2" tileType="lava" />
+        <ParticleDeposition minParticles="5" maxParticles="10" minDrops="sizeXZ * 0.005" maxDrops="sizeXZ * 0.01" tileType="lava" />
+
+        <!-- Some Dirt -->
+        <PlainRandom fromY="sizeY * 0.2" toY="sizeY * 0.3">
+          <Tile probability="10" tileType="rock"/>
+          <Tile probability="5" tileType="rock_gold"/>
+          <Tile probability="5" tileType="rock_copper"/>
+          <Tile probability="5" tileType="rock_carbon"/>
+          <Tile probability="2" tileType="rock_diamond"/>
+          <Tile probability="1" tileType="rock_red"/>
+        </PlainRandom>
+
+        <PlainRandom fromY="sizeY * 0.3" toY="sizeY * 0.4">
+          <Tile probability="1000" tileType="dirt"/>
+          <Tile probability="100" tileType="rock"/>
+          <Tile probability="5" tileType="rock_gold"/>
+          <Tile probability="5" tileType="rock_copper"/>
+          <Tile probability="5" tileType="rock_carbon"/>
+          <Tile probability="2" tileType="rock_diamond"/>
+          <Tile probability="1" tileType="rock_red"/>
+        </PlainRandom>
+
+        <PlainRandom fromY="sizeY * 0.4" toY="sizeY * 0.45">
+          <Tile probability="1000" tileType="dirt"/>
+          <Tile probability="1" tileType="rock"/>
+        </PlainRandom>
+        
+        <Plain fromY="sizeY * 0.45" toY="sizeY * 0.5" tileType="dirt" />
+
+        <!-- Some mountaints -->
+        <ParticleDeposition minParticles="sizeY" maxParticles="sizeY * 6" minDrops="sizeXZ * 0.00025" maxDrops="sizeXZ * 0.0005" tileType="rock" />
+        <ParticleDeposition minParticles="sizeY * 1" maxParticles="sizeY * 10" minDrops="sizeXZ * 0.0005" maxDrops="sizeXZ * 0.001" tileType="dirt" />
+
+        <!-- Smooth the mountains -->
+        <Smooth tileType="dirt" iterations="sizeXZ * 0.025" minRadius="3" maxRadius="5" />
+
+        <!-- Some holes for water -->
+        <Hole iterations="sizeXZ * 0.002" minRadius="3" maxRadius="8" minDepth="2" maxDepth="3" />
+
+        <!-- And the water -->
+        <Water fromY="sizeY * 0.45" toY="sizeY * 0.5" waterTileType="water" />
+
+        <!-- Convert visible dirt to grass -->
+        <TopTileTransformation fromTile="dirt" toTile="dirt_grass" probability="1"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_floor" probability="0.004"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_grass" probability="0.008"/>
+
+        <!-- Finally the trees-->
+        <Tree min="sizeXZ * 0.02" max="sizeXZ * 0.04" overTile="dirt_grass" minTrunkHeight="2" maxTrunkHeight="4" minLeavesHeight="3" maxLeavesHeight="5" minLeavesRadius="1" maxLeavesRadius="3" trunkTile="wood" leavesTile="leaves" />
+
+      </Chained>
+
+    </Generator>
+
+    <Generator name="Plain">
+
+      <Chained>
+        <Plain fromY="0" toY="sizeY * 0.25" tileType="lava" />
+        <Plain fromY="sizeY * 0.25" toY="sizeY * 0.5" tileType="dirt" />
+        <TopTileTransformation fromTile="dirt" toTile="dirt_grass" probability="1"/>
+      </Chained>
+
+    </Generator>
+
+    <Generator name="Forest and Mountains" surroundingLevel ="sizeY * 0.6" surroundingMaterial="223" surroundingOffsetY="-0.1">
+
+      <Chained>
+        <!-- Lava Floor -->
+        <Plain fromY="0" toY="sizeY * 0.2" tileType="lava" />
+        <ParticleDeposition minParticles="5" maxParticles="10" minDrops="sizeXZ * 0.005" maxDrops="sizeXZ * 0.01" tileType="lava" />
+
+        <!-- Some Dirt -->
+        <PlainRandom fromY="sizeY * 0.2" toY="sizeY * 0.3">
+          <Tile probability="10" tileType="rock"/>
+          <Tile probability="5" tileType="rock_gold"/>
+          <Tile probability="5" tileType="rock_copper"/>
+          <Tile probability="5" tileType="rock_carbon"/>
+          <Tile probability="2" tileType="rock_diamond"/>
+          <Tile probability="1" tileType="rock_red"/>
+        </PlainRandom>
+
+        <PlainRandom fromY="sizeY * 0.3" toY="sizeY * 0.4">
+          <Tile probability="1000" tileType="dirt"/>
+          <Tile probability="100" tileType="rock"/>
+          <Tile probability="5" tileType="rock_gold"/>
+          <Tile probability="5" tileType="rock_copper"/>
+          <Tile probability="5" tileType="rock_carbon"/>
+          <Tile probability="2" tileType="rock_diamond"/>
+          <Tile probability="1" tileType="rock_red"/>
+        </PlainRandom>
+
+        <PlainRandom fromY="sizeY * 0.4" toY="sizeY * 0.45">
+          <Tile probability="1000" tileType="dirt"/>
+          <Tile probability="1" tileType="rock"/>
+        </PlainRandom>
+
+        <Plain fromY="sizeY * 0.45" toY="sizeY * 0.5" tileType="dirt" />
+
+        <!-- Some mountaints -->
+        <ParticleDeposition minParticles="sizeY * 3" maxParticles="sizeY * 6" minDrops="sizeXZ * 0.0025" maxDrops="sizeXZ * 0.005" tileType="rock" />
+        <ParticleDeposition minParticles="sizeY * 5" maxParticles="sizeY * 50" minDrops="sizeXZ * 0.005" maxDrops="sizeXZ * 0.01" tileType="dirt" />
+
+        <!-- Smooth the mountains -->
+        <Smooth tileType="dirt" iterations="sizeXZ * 0.025" minRadius="3" maxRadius="5" />
+
+        <!-- Some holes for water -->
+        <Hole iterations="sizeXZ * 0.002" minRadius="3" maxRadius="8" minDepth="2" maxDepth="3" />
+
+        <!-- And the water -->
+        <Water fromY="0.2" toY="sizeY * 0.6" waterTileType="water" />
+
+        <!-- Convert visible dirt to grass -->
+        <TopTileTransformation fromTile="dirt" toTile="dirt_grass" probability="1"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_floor" probability="0.004"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_grass" probability="0.008"/>
+
+        <!-- Finally the trees-->
+        <Tree min="sizeXZ * 0.02" max="sizeXZ * 0.04" overTile="dirt_grass" minTrunkHeight="2" maxTrunkHeight="2" minLeavesHeight="3" maxLeavesHeight="4" minLeavesRadius="1" maxLeavesRadius="2" trunkTile="wood" leavesTile="leaves" />
+
+      </Chained>
+
+    </Generator>
+
+    <Generator name="Forest and Mountains and Caves" surroundingLevel ="sizeY * 0.6" surroundingMaterial="223" surroundingOffsetY="-0.1">
+
+      <Chained>
+        <!-- Lava Floor -->
+        <Plain fromY="0" toY="sizeY * 0.2" tileType="lava" />
+        <ParticleDeposition minParticles="5" maxParticles="10" minDrops="sizeXZ * 0.005" maxDrops="sizeXZ * 0.01" tileType="lava" />
+
+        <!-- Some Dirt -->
+        <PlainRandom fromY="sizeY * 0.2" toY="sizeY * 0.3">
+          <Tile probability="10" tileType="rock"/>
+          <Tile probability="5" tileType="rock_gold"/>
+          <Tile probability="5" tileType="rock_copper"/>
+          <Tile probability="5" tileType="rock_carbon"/>
+          <Tile probability="2" tileType="rock_diamond"/>
+          <Tile probability="1" tileType="rock_red"/>
+        </PlainRandom>
+
+        <PlainRandom fromY="sizeY * 0.3" toY="sizeY * 0.4">
+          <Tile probability="1000" tileType="dirt"/>
+          <Tile probability="100" tileType="rock"/>
+          <Tile probability="5" tileType="rock_gold"/>
+          <Tile probability="5" tileType="rock_copper"/>
+          <Tile probability="5" tileType="rock_carbon"/>
+          <Tile probability="2" tileType="rock_diamond"/>
+          <Tile probability="1" tileType="rock_red"/>
+        </PlainRandom>
+
+        <PlainRandom fromY="sizeY * 0.4" toY="sizeY * 0.45">
+          <Tile probability="1000" tileType="dirt"/>
+          <Tile probability="1" tileType="rock"/>
+        </PlainRandom>
+
+        <Plain fromY="sizeY * 0.45" toY="sizeY * 0.5" tileType="dirt" />
+        
+        <!-- Some caves -->
+        <Cave fromY="sizeY * 0.2" toY="sizeY * 0.35" iterations="sizeXZ * 0.0005" minRadius="4" maxRadius="10"/>
+        <CaveCell iterations="sizeXZ * 0.0005" minRadius="1" maxRadius="1" minDepth="sizeY * 2" maxDepth="sizeY * 4" />
+
+        <!-- Some mountaints -->
+        <ParticleDeposition minParticles="sizeY * 3" maxParticles="sizeY * 6" minDrops="sizeXZ * 0.0025" maxDrops="sizeXZ * 0.005" tileType="rock" />
+        <ParticleDeposition minParticles="sizeY * 5" maxParticles="sizeY * 50" minDrops="sizeXZ * 0.005" maxDrops="sizeXZ * 0.01" tileType="dirt" />
+
+        <!-- Some superficial caves -->
+        <Cave fromY="sizeY * 0.35" toY="sizeY * 0.5" iterations="sizeXZ * 0.00005" minRadius="2" maxRadius="4"/>
+        <CaveCell iterations="sizeXZ * 0.0005" minRadius="1" maxRadius="1" minDepth="sizeY" maxDepth="sizeY * 2" />
+        
+        <!-- Smooth the mountains -->
+        <Smooth tileType="dirt" iterations="sizeXZ * 0.025" minRadius="3" maxRadius="5" />
+
+        <!-- Some holes for water -->
+        <Hole iterations="sizeXZ * 0.002" minRadius="3" maxRadius="8" minDepth="2" maxDepth="3" />
+
+        <!-- And the water -->
+        <Water fromY="0.2" toY="sizeY * 0.6" waterTileType="water" />
+
+        <!-- Convert visible dirt to grass -->
+        <TopTileTransformation fromTile="dirt" toTile="dirt_grass" probability="1"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_floor" probability="0.004"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_grass" probability="0.008"/>
+
+        <!-- Finally the trees-->
+        <Tree min="sizeXZ * 0.02" max="sizeXZ * 0.04" overTile="dirt_grass" minTrunkHeight="2" maxTrunkHeight="2" minLeavesHeight="3" maxLeavesHeight="4" minLeavesRadius="1" maxLeavesRadius="2" trunkTile="wood" leavesTile="leaves" />
+
+      </Chained>
+
+    </Generator>
+
+    <Generator name="Forest and Mountains and LOTS of Caves" surroundingLevel ="sizeY * 0.6" surroundingMaterial="223" surroundingOffsetY="-0.1">
+
+      <Chained>
+        <!-- Lava Floor -->
+        <Plain fromY="0" toY="sizeY * 0.2" tileType="lava" />
+        <ParticleDeposition minParticles="5" maxParticles="10" minDrops="sizeXZ * 0.005" maxDrops="sizeXZ * 0.01" tileType="lava" />
+
+        <!-- Some Dirt -->
+        <PlainRandom fromY="sizeY * 0.2" toY="sizeY * 0.3">
+          <Tile probability="10" tileType="rock"/>
+          <Tile probability="5" tileType="rock_gold"/>
+          <Tile probability="5" tileType="rock_copper"/>
+          <Tile probability="5" tileType="rock_carbon"/>
+          <Tile probability="2" tileType="rock_diamond"/>
+          <Tile probability="1" tileType="rock_red"/>
+        </PlainRandom>
+
+        <PlainRandom fromY="sizeY * 0.3" toY="sizeY * 0.4">
+          <Tile probability="1000" tileType="dirt"/>
+          <Tile probability="100" tileType="rock"/>
+          <Tile probability="5" tileType="rock_gold"/>
+          <Tile probability="5" tileType="rock_copper"/>
+          <Tile probability="5" tileType="rock_carbon"/>
+          <Tile probability="2" tileType="rock_diamond"/>
+          <Tile probability="1" tileType="rock_red"/>
+        </PlainRandom>
+
+        <PlainRandom fromY="sizeY * 0.4" toY="sizeY * 0.45">
+          <Tile probability="1000" tileType="dirt"/>
+          <Tile probability="1" tileType="rock"/>
+        </PlainRandom>
+
+        <Plain fromY="sizeY * 0.45" toY="sizeY * 0.5" tileType="dirt" />
+
+        <!-- Some caves -->
+        <Cave fromY="sizeY * 0.2" toY="sizeY * 0.35" iterations="sizeXZ * 0.002" minRadius="4" maxRadius="10"/>
+        <CaveCell iterations="sizeXZ * 0.002" minRadius="1" maxRadius="1" minDepth="sizeY * 2" maxDepth="sizeY * 4" />
+
+        <!-- Some mountaints -->
+        <ParticleDeposition minParticles="sizeY * 3" maxParticles="sizeY * 6" minDrops="sizeXZ * 0.0025" maxDrops="sizeXZ * 0.005" tileType="rock" />
+        <ParticleDeposition minParticles="sizeY * 5" maxParticles="sizeY * 50" minDrops="sizeXZ * 0.005" maxDrops="sizeXZ * 0.01" tileType="dirt" />
+
+        <!-- Smooth the mountains -->
+        <Smooth tileType="dirt" iterations="sizeXZ * 0.025" minRadius="3" maxRadius="5" />
+
+        <!-- Some holes for water -->
+        <Hole iterations="sizeXZ * 0.002" minRadius="3" maxRadius="8" minDepth="2" maxDepth="3" />
+
+        <!-- And the water -->
+        <Water fromY="0.2" toY="sizeY * 0.6" waterTileType="water" />
+
+        <!-- Convert visible dirt to grass -->
+        <TopTileTransformation fromTile="dirt" toTile="dirt_grass" probability="1"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_floor" probability="0.004"/>
+        <TopTileTransformation fromTile="dirt_grass" toTile="rock_grass" probability="0.008"/>
+
+        <!-- Finally the trees-->
+        <Tree min="sizeXZ * 0.02" max="sizeXZ * 0.04" overTile="dirt_grass" minTrunkHeight="2" maxTrunkHeight="2" minLeavesHeight="3" maxLeavesHeight="4" minLeavesRadius="1" maxLeavesRadius="2" trunkTile="wood" leavesTile="leaves" />
+
+      </Chained>
+
+    </Generator>
+
+  </Generators>
+
+</Config>

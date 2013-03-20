@@ -1,0 +1,78 @@
+<Config>
+
+  <Sizes>
+    <Size name="Normal">
+      <WorldSizeBitsX>8</WorldSizeBitsX>
+      <WorldSizeBitsY>6</WorldSizeBitsY>
+      <WorldSizeBitsZ>8</WorldSizeBitsZ>
+    </Size>
+    <Size name="Medium">
+      <WorldSizeBitsX>7</WorldSizeBitsX>
+      <WorldSizeBitsY>6</WorldSizeBitsY>
+      <WorldSizeBitsZ>7</WorldSizeBitsZ>
+    </Size>
+    <Size name="Small">
+      <WorldSizeBitsX>6</WorldSizeBitsX>
+      <WorldSizeBitsY>5</WorldSizeBitsY>
+      <WorldSizeBitsZ>6</WorldSizeBitsZ>
+    </Size>
+    <Size name="Big">
+      <WorldSizeBitsX>9</WorldSizeBitsX>
+      <WorldSizeBitsY>6</WorldSizeBitsY>
+      <WorldSizeBitsZ>9</WorldSizeBitsZ>
+    </Size>
+  </Sizes>
+
+  <DayInfos>
+
+    <DayInfo name="240 seconds">
+      <Duration>240</Duration>
+      <Luminances>
+        <Luminance normalizedTime="0" luminancePercent="100" />
+        <Luminance normalizedTime="0.4" luminancePercent="100" />
+        <Luminance normalizedTime="0.6" luminancePercent="20" />
+        <Luminance normalizedTime="0.8" luminancePercent="20" />
+        <Luminance normalizedTime="1.0" luminancePercent="100" />
+      </Luminances>
+    </DayInfo>
+    
+    <DayInfo name="Always day">
+      <Duration>900001</Duration>
+      <Luminances>
+        <Luminance normalizedTime="0" luminancePercent="100" />
+        <Luminance normalizedTime="1.0" luminancePercent="100" />
+      </Luminances>
+    </DayInfo>
+
+    <DayInfo name="60 seconds">
+      <Duration>60</Duration>
+      <Luminances>
+        <Luminance normalizedTime="0" luminancePercent="100" />
+        <Luminance normalizedTime="0.4" luminancePercent="100" />
+        <Luminance normalizedTime="0.6" luminancePercent="20" />
+        <Luminance normalizedTime="0.8" luminancePercent="20" />
+        <Luminance normalizedTime="1.0" luminancePercent="100" />
+      </Luminances>
+    </DayInfo>
+    
+    <DayInfo name="120 seconds">
+      <Duration>120</Duration>
+      <Luminances>
+        <Luminance normalizedTime="0" luminancePercent="100" />
+        <Luminance normalizedTime="0.4" luminancePercent="100" />
+        <Luminance normalizedTime="0.6" luminancePercent="20" />
+        <Luminance normalizedTime="0.8" luminancePercent="20" />
+        <Luminance normalizedTime="1.0" luminancePercent="100" />
+      </Luminances>
+    </DayInfo>
+
+    <DayInfo name="Always Night">
+      <Duration>900001</Duration>
+      <Luminances>
+        <Luminance normalizedTime="0" luminancePercent="20" />
+        <Luminance normalizedTime="1.0" luminancePercent="20" />
+      </Luminances>
+    </DayInfo>
+  </DayInfos>
+      
+</Config>

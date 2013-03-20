@@ -1,0 +1,297 @@
+<Config>
+  
+  <!-- Tiles used for damage / fire -->
+  <ExtraMaterials>
+    <DamageMaterials>240,241,242,243,244,245,246,247,248,249</DamageMaterials>
+    <FireMaterials>30</FireMaterials>
+  </ExtraMaterials>
+
+  <!-- Tile Definitions
+      - id: Tile id
+      - description: Tile description
+      - enery: Tile energy (0-15), the default value is 15 (not damageable)
+      - drawMode: Tile draw mode (SOLID / SOLID_ALPHA / TRANSPARENT / LIQUID)
+      - materials: Index array of textues used in each face. order: back, front, bottom, top, right, left. 
+          If only one material is present, the same material is used in all faces
+      - castShadow: Tiles cast shadow or not (true / false), the default value is true
+      - lightSourceIntensity: Tile light source intenseity (0-14), the default value is 0 (no light source)
+      - animated: Tile texture animated (true / false), the default value is false
+      - burns: Tile burns when set on fire (true / false), the default value is false
+      - liquid: Tile is a liquid (true / false), the default is false
+      - solid: Tile is solid (true / false), the default is true
+  -->
+  <Tiles>
+    <Tile id="dirt" drawMode="SOLID" description="Dirt" materials="2" energy="4" />
+    <Tile id="dirt_grass" drawMode="SOLID" description="Dirt + Grass" materials="3,3,2,0,3,3" energy="6"/>
+
+    <Tile id="sand" drawMode="SOLID" description="Sand" materials="18" energy="6"/>
+    
+    <Tile id="rock" drawMode="SOLID" description="Rock" materials="1" energy="8" />
+    <Tile id="falling_rock" drawMode="SOLID" description="Falling Rock" materials="1" energy="8" />
+
+    <Tile id="hard_rock" drawMode="SOLID" description="Hard Rock" materials="48" />
+    <Tile id="hard_glass" drawMode="SOLID_ALPHA" description="Hard Glass" materials="49" castShadow="false"/>
+    <Tile id="ceiling_glass" drawMode="SOLID_ALPHA" description="Ceiling Glass" materials="-1,-1,49,-1,-1,-1" castShadow="false"/>
+    
+    <Tile id="glass" drawMode="SOLID_ALPHA" description="Light" castShadow="false" lightSourceIntensity="14" materials="49" energy="6"/>
+    <Tile id="wood" drawMode="SOLID" description="Wood" materials="20,20,21,21,20,20" energy="6" burns="true"/>
+    <Tile id="leaves" drawMode="SOLID_ALPHA" description="Leaves" materials="52" energy="2" burns="true" />
+
+    <Tile id="water" liquid="true" solid="false" drawMode="LIQUID" animated="true" description="Water" castShadow="false" materials="223" energy="1"/>
+    <Tile id="lava" liquid="true" solid="true" drawMode="LIQUID" animated="true" description="Lava" castShadow="false" lightSourceIntensity="14" materials="255" energy="4"/>
+
+    <Tile id="rock_floor" drawMode="SOLID" description="Rock Floor" materials="16" energy="8" />
+    <Tile id="rock_grass" drawMode="SOLID" description="Rock w/Grass" materials="36" energy="8" />
+
+    <Tile id="rock_gold" drawMode="SOLID" description="Rock w/Gold" materials="32" energy="14"/>
+    <Tile id="rock_copper" drawMode="SOLID" description="Rock w/Copper" materials="33" energy="14" />
+    <Tile id="rock_carbon" drawMode="SOLID" description="Rock w/Carbon" materials="34" energy="14" />
+    <Tile id="rock_diamond" drawMode="SOLID" description="Rock w/Diamond" materials="50" energy="14" />
+    <Tile id="rock_red" drawMode="SOLID" description="Rock w/Red" materials="51" energy="14" />
+
+    <Tile id="tnt" drawMode="SOLID" description="TNT" materials="8,8,10,9,8,8" energy="1"/>
+  </Tiles>
+
+  <TileRules>
+    
+    <!-- Some destroyed tiles drop the same tile item when destroyed -->
+    <TileActionRule tileType="dirt,dirt_grass,sand,rock,glass,wood,leaves,falling_rock" action="DESTROYED" >
+      <DropSameTileItem/>
+    </TileActionRule>
+    
+    <!-- Make objects fall when they're not above something solid-->
+    <TileRule tileType="falling_rock">
+      <SetDynamic>
+        <IsType dy="-1" tileType="empty"/>
+      </SetDynamic>
+    </TileRule>
+
+    <TileActionRule tileType="falling_rock" action="CREATED">
+      <SetDynamic>
+        <IsType dy="-1" tileType="empty"/>
+      </SetDynamic>
+    </TileActionRule>
+
+    <!-- Convert some falling object back to static objects once they hit the floor -->
+    <TileActionRule tileType="falling_rock" action="HIT_FLOOR">
+      <SetDynamic value="false"/>
+    </TileActionRule>
+
+    <!-- Spread water to empty tiles near the water source -->
+    <TileRule tileType="water">
+      <Liquid max="7" speed="3"/>
+    </TileRule>
+
+    <!--
+    <TileRule tileType="water">
+      <SetTileType dx="-1" tileType="water">
+        <And>
+          <IsType dx="-1" tileType="empty"/>
+          <Not><IsType dy="-1" tileType="empty"/></Not>
+        </And>
+      </SetTileType>
+      <SetTileType dx="1" tileType="water">
+        <And>
+          <IsType dx="1" tileType="empty"/>
+          <Not><IsType dy="-1" tileType="empty"/></Not>
+        </And>
+      </SetTileType>
+      <SetTileType dz="-1" tileType="water">
+        <And>
+          <IsType dz="-1" tileType="empty"/>
+          <Not><IsType dy="-1" tileType="empty"/></Not>
+        </And>
+      </SetTileType>
+      <SetTileType dz="1" tileType="water">
+        <And>
+          <IsType dz="1" tileType="empty"/>
+          <Not><IsType dy="-1" tileType="empty"/></Not>
+        </And>
+      </SetTileType>
+      <SetTileType dy="-1" tileType="water">
+        <IsType dy="-1" tileType="empty"/>
+      </SetTileType>
+      
+    </TileRule>
+    -->
+    
+    <!-- Convert dirt to dirt_grass if near water -->
+    <TileRule tileType="dirt">
+      <SetTileType tileType="dirt_grass">
+        <And>
+          <IsType dy="1" tileType="empty"/>
+          <Or>
+            <IsType dx="-1" tileType="water"/>
+            <IsType dx="1" tileType="water"/>
+            <IsType dz="-1" tileType="water"/>
+            <IsType dz="1" tileType="water"/>
+          </Or>
+        </And>
+      </SetTileType>
+    </TileRule>
+
+    <!-- Convert dirt_grass to dirt if something is put on top of it -->
+    <TileRule tileType="dirt_grass">
+      <SetTileType tileType="dirt">
+        <Not>
+          <IsType dy="1" tileType="empty"/>
+        </Not>
+      </SetTileType>
+    </TileRule>
+
+    <!-- Convert lava to rock if water touchs it -->
+    <TileRule tileType="lava">
+      <SetTileType tileType="rock">
+        <Or>
+          <IsType dx="-1" tileType="water"/>
+          <IsType dx="1" tileType="water"/>
+          <IsType dy="-1" tileType="water"/>
+          <IsType dy="1" tileType="water"/>
+          <IsType dz="-1" tileType="water"/>
+          <IsType dz="1" tileType="water"/>
+        </Or>
+      </SetTileType>
+    </TileRule>
+	
+    <!-- Spread lava to empty tiles near the lava -->
+    <TileRule tileType="lava">
+      <Liquid max="4" speed="10"/>
+    </TileRule>
+    
+    <!--
+    <TileRule tileType="lava">
+      <SetTileType dx="-1" tileType="lava">
+        <IsType dx="-1" tileType="empty"/>
+      </SetTileType>
+      <SetTileType dx="1" tileType="lava">
+        <IsType dx="1" tileType="empty"/>
+      </SetTileType>
+      <SetTileType dz="-1" tileType="lava">
+        <IsType dz="-1" tileType="empty"/>
+      </SetTileType>
+      <SetTileType dz="1" tileType="lava">
+        <IsType dz="1" tileType="empty"/>
+      </SetTileType>
+      <SetTileType dy="-1" tileType="lava">
+        <IsType dy="-1" tileType="empty"/>
+      </SetTileType>
+    </TileRule>
+    -->
+    
+    <!-- Destroy TNT in 25 cycles after clicked (2.5 seconds) -->
+    <TileActionRule tileType="tnt" action="CLICKED" >
+      <SetDynamic gravity="false" timeout="25"/>
+      <ApplyEffect id="vibration"/>
+    </TileActionRule>
+
+    <TileActionRule tileType="tnt" action="TIMEOUT" >
+      <Destroy/>
+    </TileActionRule>
+
+    <!-- Explode TNT when destroyed -->
+    <TileActionRule tileType="tnt" action="DESTROYED" >
+      <PlayEffect id="explosion"/>
+      <PlaySound id="explosion"/>
+      <Explode radius="5" damage="30" setOnFire="true"/>
+    </TileActionRule>
+
+    <!-- Water turn things on fire off, and then evaporates -->
+    <TileRule tileType="water">
+      <Multiple>
+        <Condition>
+          <Or>
+            <IsOnFire dx="-1"/>
+            <IsOnFire dx="1"/>
+            <IsOnFire dy="-1"/>
+            <IsOnFire dy="1"/>
+            <IsOnFire dz="-1"/>
+            <IsOnFire dz="1"/>
+          </Or>
+        </Condition>
+        <Rules>
+          <SetOnFire dx="-1" value="false"><IsOnFire dx="-1"/></SetOnFire>
+          <SetOnFire dx="1" value="false"><IsOnFire dx="1"/></SetOnFire>
+          <SetOnFire dy="-1" value="false"><IsOnFire dy="-1"/></SetOnFire>
+          <SetOnFire dy="1" value="false"><IsOnFire dy="1"/></SetOnFire>
+          <SetOnFire dz="-1" value="false"><IsOnFire dz="-1"/></SetOnFire>
+          <SetOnFire dz="1" value="false"><IsOnFire dz="1"/></SetOnFire>
+          <Destroy/>
+        </Rules>
+      </Multiple>
+    </TileRule>
+
+    <!-- Make leaves on fire fall -->
+    <TileRule tileType="leaves">
+      <SetDynamic>
+        <And>
+          <IsOnFire/>
+          <IsType dy="-1" tileType="empty"/>
+        </And>
+      </SetDynamic>
+    </TileRule>
+    
+    <!-- Convert falling leaves back to static if they hit the floor and they're not on fire-->
+    <TileActionRule tileType="leaves" action="HIT_FLOOR">
+      <SetDynamic value="false">
+        <Not><IsOnFire/></Not>
+      </SetDynamic>
+    </TileActionRule>
+    
+    <!-- Make leaves with no neighbors fall -->
+    <TileRule tileType="leaves">
+      <SetDynamic>
+        <And>
+          <IsType dx="1" tileType="empty"/>
+          <IsType dy="-1" tileType="empty"/>
+          <IsType dy="1" tileType="empty"/>
+          <IsType dz="-1" tileType="empty"/>
+          <IsType dz="1" tileType="empty"/>
+        </And>
+      </SetDynamic>
+    </TileRule>
+    
+    <!-- Damage things on fire -->
+    <TileActionRule tileType="wood" action="ONFIRE">
+      <SetDynamic gravity="false" timeout="10"/>
+    </TileActionRule>
+
+    <TileActionRule tileType="leaves" action="ONFIRE">
+      <SetDynamic timeout="10"/>
+    </TileActionRule>
+    
+    <TileActionRule tileType="wood,leaves" action="TIMEOUT">
+      
+      <!-- Make the tile static if it's not on fire -->
+      <SetDynamic value="false">
+        <Not><IsOnFire/></Not>
+      </SetDynamic>
+      
+      <!-- If it's on fire, damage it, burn some tiles around it and then set another timeout -->
+      <Multiple>
+        <Condition><IsOnFire/></Condition>
+        <Rules>
+
+          <!-- Enqueue another timeout -->
+          <SetDynamic timeout="10"/>
+
+          <!-- Set some random tile near on fire -->
+          <MultipleOnlyOne useRandom="true">
+            <Rules>
+              <SetOnFire dx="-1"><And><IsBurnable dx="-1"/><Not><IsOnFire dx="-1"/></Not></And></SetOnFire>
+              <SetOnFire dx="1"><And><IsBurnable dx="1"/><Not><IsOnFire dx="1"/></Not></And></SetOnFire>
+              <SetOnFire dy="-1"><And><IsBurnable dy="-1"/><Not><IsOnFire dy="-1"/></Not></And></SetOnFire>
+              <SetOnFire dy="1"><And><IsBurnable dy="1"/><Not><IsOnFire dy="1"/></Not></And></SetOnFire>
+              <SetOnFire dz="-1"><And><IsBurnable dz="-1"/><Not><IsOnFire dz="-1"/></Not></And></SetOnFire>
+              <SetOnFire dz="1"><And><IsBurnable dz="1"/><Not><IsOnFire dz="1"/></Not></And></SetOnFire>
+            </Rules>
+          </MultipleOnlyOne>          
+          
+          <!-- Damage the tile -->
+          <Damage damage="1"/>
+        </Rules>
+      </Multiple>
+    </TileActionRule>
+    
+  </TileRules>
+
+</Config>

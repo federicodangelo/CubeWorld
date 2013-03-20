@@ -1,0 +1,8 @@
+<Config>
+
+  <Items>
+  	<Item id="item_weapon" description="Weapon" material="item_weapon" materialCount="3" pivot="0,-1,0" damage="4" durability="30"/>
+  	<Item id="item_fire" description="Weapon of Fire" material="item_fire"  pivot="0,-1,0" durability="30" damage="2" setOnFire="true" />
+  </Items>
+    
+</Config>
