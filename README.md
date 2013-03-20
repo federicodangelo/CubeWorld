@@ -13,3 +13,6 @@ The project is split in 3 parts:
 
 - CubeWorldWeb: Small Google App Engine application that handles the discovery of multiplayer games, when you create a server it automatically publishes it's IP to this web server for discovery by other clients.
 
+Screenshot:
+
+![Screenshot](/Screenshots/ss1.png)
