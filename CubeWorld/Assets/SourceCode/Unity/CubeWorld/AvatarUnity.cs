@@ -24,7 +24,7 @@ public class AvatarUnity : MonoBehaviour
         bodyRenderEnabled = false;
 
         foreach (GameObject part in parts)
-            part.renderer.enabled = false;
+            part.GetComponent<Renderer>().enabled = false;
     }
 
     public void EnableBodyRender()
@@ -32,7 +32,7 @@ public class AvatarUnity : MonoBehaviour
         bodyRenderEnabled = true;
 
         foreach (GameObject part in parts)
-            part.renderer.enabled = true;
+            part.GetComponent<Renderer>().enabled = true;
     }
 
     public virtual void Start()
@@ -90,7 +90,7 @@ public class AvatarUnity : MonoBehaviour
                     break;
             }
 
-            goPart.renderer.enabled = bodyRenderEnabled;
+            goPart.GetComponent<Renderer>().enabled = bodyRenderEnabled;
 
             parts.Add(goPart);
         }

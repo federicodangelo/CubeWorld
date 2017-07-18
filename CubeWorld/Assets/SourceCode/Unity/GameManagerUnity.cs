@@ -181,7 +181,7 @@ public class GameManagerUnity : MonoBehaviour
         
     public void StartGame()
     {
-        camera.enabled = false;
+        GetComponent<Camera>().enabled = false;
 
         LockCursor();
 
@@ -206,7 +206,7 @@ public class GameManagerUnity : MonoBehaviour
     {
         DestroyWorld();
 
-        camera.enabled = true;
+        GetComponent<Camera>().enabled = true;
 
         State = GameManagerUnityState.MAIN_MENU;
     }
@@ -308,13 +308,13 @@ public class GameManagerUnity : MonoBehaviour
     public void ReleaseCursor()
     {
         Screen.lockCursor = false;
-        Screen.showCursor = true;
+        Cursor.visible = true;
     }
 
     public void LockCursor()
     {
         Screen.lockCursor = true;
-        Screen.showCursor = false;
+        Cursor.visible = false;
     }
 
     public void PreferencesUpdated()

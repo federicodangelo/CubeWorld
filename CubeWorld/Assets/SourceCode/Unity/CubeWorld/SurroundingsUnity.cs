@@ -50,7 +50,7 @@ public class SurroundingsUnity : MonoBehaviour
         if (surroundingFaceColor != oldSurroundingFaceColor)
         {
             foreach (GameObject go in goSurroundings)
-                go.renderer.material.color = surroundingFaceColor;
+                go.GetComponent<Renderer>().material.color = surroundingFaceColor;
 
             oldSurroundingFaceColor = surroundingFaceColor;
         }
@@ -112,34 +112,34 @@ public class SurroundingsUnity : MonoBehaviour
             goPlane4.name = "A4";
             goPlane4.transform.parent = goContainer.transform;
 
-            goPlane1.renderer.material = new Material(materialSurrounding);
-            goPlane2.renderer.material = new Material(materialSurrounding);
-            goPlane3.renderer.material = new Material(materialSurrounding);
-            goPlane4.renderer.material = new Material(materialSurrounding);
+            goPlane1.GetComponent<Renderer>().material = new Material(materialSurrounding);
+            goPlane2.GetComponent<Renderer>().material = new Material(materialSurrounding);
+            goPlane3.GetComponent<Renderer>().material = new Material(materialSurrounding);
+            goPlane4.GetComponent<Renderer>().material = new Material(materialSurrounding);
 			
             Texture2D surroundingTexture = GraphicsUnity.GetTilesetTexture((Texture2D) gameManagerUnity.materialTransparent.mainTexture, configSurroundings.surroundingMaterial);
             surroundingTexture.wrapMode = TextureWrapMode.Repeat;
 
-            goPlane1.renderer.material.mainTexture = surroundingTexture;
-            goPlane2.renderer.material.mainTexture = surroundingTexture;
-            goPlane3.renderer.material.mainTexture = surroundingTexture;
-            goPlane4.renderer.material.mainTexture = surroundingTexture;
+            goPlane1.GetComponent<Renderer>().material.mainTexture = surroundingTexture;
+            goPlane2.GetComponent<Renderer>().material.mainTexture = surroundingTexture;
+            goPlane3.GetComponent<Renderer>().material.mainTexture = surroundingTexture;
+            goPlane4.GetComponent<Renderer>().material.mainTexture = surroundingTexture;
 
             goPlane1.transform.localScale = new Vector3(world.sizeX / SURROUNDING_PLANE_SCALE, 0, SURROUNDING_PLANE_SIZE / SURROUNDING_PLANE_SCALE);
             goPlane1.transform.position = new Vector3(world.sizeX / 2.0f - 0.5f, surroundingLevel - 0.5f, -SURROUNDING_PLANE_SIZE / 2.0f - 0.5f);
-            goPlane1.renderer.material.mainTextureScale = new Vector2(goPlane1.transform.localScale.x * SURROUNDING_PLANE_SCALE, goPlane1.transform.localScale.z * SURROUNDING_PLANE_SCALE);
+            goPlane1.GetComponent<Renderer>().material.mainTextureScale = new Vector2(goPlane1.transform.localScale.x * SURROUNDING_PLANE_SCALE, goPlane1.transform.localScale.z * SURROUNDING_PLANE_SCALE);
 
             goPlane2.transform.localScale = new Vector3(world.sizeX / SURROUNDING_PLANE_SCALE, 0, SURROUNDING_PLANE_SIZE / SURROUNDING_PLANE_SCALE);
             goPlane2.transform.position = new Vector3(world.sizeX / 2.0f - 0.5f, surroundingLevel - 0.5f, world.sizeZ - 0.5f + SURROUNDING_PLANE_SIZE / 2.0f);
-            goPlane2.renderer.material.mainTextureScale = new Vector2(goPlane2.transform.localScale.x * SURROUNDING_PLANE_SCALE, goPlane2.transform.localScale.z * SURROUNDING_PLANE_SCALE);
+            goPlane2.GetComponent<Renderer>().material.mainTextureScale = new Vector2(goPlane2.transform.localScale.x * SURROUNDING_PLANE_SCALE, goPlane2.transform.localScale.z * SURROUNDING_PLANE_SCALE);
 
             goPlane3.transform.localScale = new Vector3(SURROUNDING_PLANE_SIZE / SURROUNDING_PLANE_SCALE, 0, SURROUNDING_PLANE_SIZE / SURROUNDING_PLANE_SCALE * 2.0f + world.sizeX / SURROUNDING_PLANE_SCALE);
             goPlane3.transform.position = new Vector3(world.sizeX + SURROUNDING_PLANE_SIZE / 2.0f - 0.5f, surroundingLevel - 0.5f, world.sizeZ / 2.0f - 0.5f);
-            goPlane3.renderer.material.mainTextureScale = new Vector2(goPlane3.transform.localScale.x * SURROUNDING_PLANE_SCALE, goPlane3.transform.localScale.z * SURROUNDING_PLANE_SCALE);
+            goPlane3.GetComponent<Renderer>().material.mainTextureScale = new Vector2(goPlane3.transform.localScale.x * SURROUNDING_PLANE_SCALE, goPlane3.transform.localScale.z * SURROUNDING_PLANE_SCALE);
 
             goPlane4.transform.localScale = new Vector3(SURROUNDING_PLANE_SIZE / SURROUNDING_PLANE_SCALE, 0, SURROUNDING_PLANE_SIZE / SURROUNDING_PLANE_SCALE * 2.0f + world.sizeX / SURROUNDING_PLANE_SCALE);
             goPlane4.transform.position = new Vector3(-SURROUNDING_PLANE_SIZE / 2.0f - 0.5f, surroundingLevel - 0.5f, world.sizeZ / 2.0f - 0.5f);
-            goPlane4.renderer.material.mainTextureScale = new Vector2(goPlane4.transform.localScale.x * SURROUNDING_PLANE_SCALE, goPlane4.transform.localScale.z * SURROUNDING_PLANE_SCALE);
+            goPlane4.GetComponent<Renderer>().material.mainTextureScale = new Vector2(goPlane4.transform.localScale.x * SURROUNDING_PLANE_SCALE, goPlane4.transform.localScale.z * SURROUNDING_PLANE_SCALE);
 
             goSurroundings.Add(goPlane1);
             goSurroundings.Add(goPlane2);

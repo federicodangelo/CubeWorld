@@ -1,7 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{FC432648-1562-1ABB-FE8D-71EC54FAB72B}") = "CubeWorld", "Assembly-CSharp.csproj", "{4B537265-1057-24A1-024E-1506492D4943}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeWorld", "Assembly-CSharp.csproj", "{4B537265-1057-24A1-024E-1506492D4943}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,5 +35,4 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
-
 EndGlobal

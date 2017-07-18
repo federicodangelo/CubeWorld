@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeWorldLibrary", "CubeWorldLibrary.csproj", "{C5212213-ADB7-4658-8868-42004E96A6A3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeWorldTestProject", "CubeWorldTestProject\CubeWorldTestProject.csproj", "{7AFA9F51-D163-477D-839B-044E2685A955}"
