@@ -7,7 +7,7 @@ The interesting part is that the terrain generation and tiles definition is very
 
 The project is split in 3 parts:
 
-- CubeWorldLibrary: Base voxel game library, made in pure C# using Visual Studio 2008, implements simulation logic, sectors, items, tiles update logic, MULTIPLAYER suuport (yes, it has a very basic multiplayer support :-) )
+- CubeWorldLibrary: Base voxel game library, made in pure C# using Visual Studio 2008, implements simulation logic, sectors, items, tiles update logic, MULTIPLAYER support (yes, it has a very basic multiplayer support :-) )
 
 - CubeWorld: Demo game made in Unity that uses CubeWorldLibrary
 
