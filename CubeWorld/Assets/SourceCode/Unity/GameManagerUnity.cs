@@ -88,7 +88,7 @@ public class GameManagerUnity : MonoBehaviour
 
         #if !UNITY_WEBPLAYER
 
-        if (Application.isEditor == false && Application.isWebPlayer == false)
+        if (Application.isEditor == false && Application.platform != RuntimePlatform.WebGLPlayer)
         {
             try
             {
@@ -126,7 +126,7 @@ public class GameManagerUnity : MonoBehaviour
     {
         #if !UNITY_WEBPLAYER
 
-            if (Application.isEditor == false && Application.isWebPlayer == false)
+            if (Application.isEditor == false && Application.platform != RuntimePlatform.WebGLPlayer)
             {
                 try
                 {

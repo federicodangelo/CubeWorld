@@ -231,7 +231,7 @@ public class MainMenu
         }
         );
 
-        if (Application.isWebPlayer == false && Application.isEditor == false)
+        if (Application.platform != RuntimePlatform.WebGLPlayer && Application.isEditor == false)
         {
             MenuSystem.LastButton("Exit", delegate()
             {
