@@ -13,6 +13,10 @@ The project is split in 3 parts:
 
 - CubeWorldWeb: Small Google App Engine application that handles the discovery of multiplayer games, when you create a server it automatically publishes it's IP to this web server for discovery by other clients.
 
+- Configurable terrain generation: ![config_generators.xml](/CubeWorld/Assets/Resources/config_generators.xml)
+  
+- Configurable terrain tiles behavior: ![config_tiles.xml](/CubeWorld/Assets/Resources/config_tiles.xml)
+
 Screenshot:
 
 ![Screenshot](/Screenshots/ss1.png)
